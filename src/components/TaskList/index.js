@@ -4,7 +4,7 @@ import gql from 'graphql-tag'
 import { List } from 'antd'
 import TaskItem, { TaskItemFragment } from "../TaskItem";
 
-const TASKS_QUERY = gql`
+export const TASKS_QUERY = gql`
 query TASKS_QUERY {
   tasks {
     id

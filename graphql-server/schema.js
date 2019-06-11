@@ -6,6 +6,11 @@ type Query {
 
 type Mutation {
   toggleTaskStatus( id: ID!, currentStatus: TaskStatusEnum!): ToggleTaskPayload
+  createTask(title: String!, categoryId: ID! ): CreateTaskPayload
+}
+
+type CreateTaskPayload {
+  task: Task
 }
 
 type ToggleTaskPayload {

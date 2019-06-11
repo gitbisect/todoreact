@@ -24,6 +24,13 @@ export const resolvers = {
             const newStatus = currentStatus === 'INCOMPLETE' ? 'COMPLETE' : 'INCOMPLETE';
             const task = TasksModel.updateTask(id, {status: newStatus})
             return {task}
+        },
+        createTask: async (_, { title, categoryId } ) => {
+            const task = await TasksModel.createTask({
+                title,
+                category: categoryId
+            });
+            return {task}
         }
     },
     Task: {
