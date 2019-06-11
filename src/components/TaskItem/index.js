@@ -19,20 +19,32 @@ fragment TaskItem on Task {
 class TaskItem extends React.Component {
     render() {
 
-        const { title, category } = this.props;
+		const { task: { id, title, category, taskStatus } } = this.props;
+		const titleStyle = 'INCOMPLETE' === taskStatus ? 'none' : 'line-through'
         return(
             <Fragment>
                 <Col xs={12} md={12}>
-                    <h3>{title}</h3>
+                    <h3 style={{ textDecoration: titleStyle }}>{title}</h3>
                     <Tag color={category.color}>{category.name}</Tag>
                 </Col>
                 <Col xs={12} md={12}>
                     <Row type="flex" justify="end">
-                        <Button
-                            type="primary"
-                            style={{marginRight: '5px'}}
-                        >Mark Complete</Button>
-                        <Button
+						{   'INCOMPLETE'  === taskStatus ? 
+							<Button onClick={ () => {
+								alert(`Mark complete ${id}`)
+							}}
+											type="primary"
+											style={{marginRight: '5px'}}
+										>Mark Complete</Button> :
+										<Button  onClick={ () => {
+											alert(`Mark incomplete ${id}`)
+										}}
+										type="alert"
+										style={{marginRight: '5px'}}
+									>Mark Incomplete</Button>
+						}            <Button  onClick={ () => {
+							alert(`delete the task ${id}`)
+						}}
                             type="danger"
                         >
                             <Icon type="delete" /> Delete

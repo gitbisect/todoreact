@@ -33,9 +33,7 @@ const TaskList = () => (
                 renderItem={task => (
                   <List.Item key={task.id}>
                     <TaskItem
-                        id={task.id}
-                        title={task.title}
-                        category={task.category}
+                        task={task}
                     />
                   </List.Item>
                 )}
