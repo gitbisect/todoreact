@@ -4,6 +4,14 @@ type Query {
   taskCategories: [TaskCategory]
 }
 
+type Mutation {
+  toggleTaskStatus( id: ID!, currentStatus: TaskStatusEnum!): ToggleTaskPayload
+}
+
+type ToggleTaskPayload {
+  task: Task
+}
+
 type Task {
  id: ID!
  title: String!

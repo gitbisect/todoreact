@@ -20,7 +20,7 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     context,
-    extensions
+    // extensions
 });
 
 server.listen({
